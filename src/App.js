@@ -1,7 +1,7 @@
+import SearchBar from "./components/SearchBar";
+
 export default function App() {
-    return (
-        <div>
-            <p>Hello World!</p>
-        </div>
-    );
+    const handleOnTermChange = (term) => console.log(term);
+
+    return <SearchBar onTermChange={handleOnTermChange} />;
 }

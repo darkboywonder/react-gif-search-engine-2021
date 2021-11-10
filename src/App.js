@@ -1,24 +1,18 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import GifList from "./components/GifList";
 import SearchBar from "./components/SearchBar";
+import request from "superagent";
 
 export default function App() {
-    const [gifs, setGifs] = useState([
-        {
-            id: 1,
-            url: 'http://fakeimg.pl/300/'
-        },
-        {
-            id: 2,
-            url: 'http://fakeimg.pl/300/'
-        },
-        {
-            id: 3,
-            url: 'http://fakeimg.pl/300/'
-        }
-    ]);
+    const [gifs, setGifs] = useState([]);
 
-    const handleOnTermChange = (term) => console.log(term);
+    const handleOnTermChange = useCallback((term) => {
+        const url = `http://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=${process.env.REACT_APP_GIPHY_API_KEY}`;
+
+        request.get(url, function(err, res) {
+            setGifs(res.body.data);
+        });
+    }, []);
 
     return (
         <>

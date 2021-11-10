@@ -1,6 +1,6 @@
-export default function GifItem({ gif }) {
+export default function GifItem({ gif, onGifSelect }) {
     return (
-        <div className="gif-item">
+        <div className="gif-item" onClick={() => onGifSelect(gif)}>
             <img src={gif.images.downsized.url} alt={gif.title} />
         </div>
     )

@@ -9,7 +9,7 @@ export default function SearchBar({ onTermChange }) {
 
     return (
         <div className="search">
-            <input onChange={(event) => setTerm(event.target.value)} />
+            <input placeholder="Enter text to search for gifs!" onChange={(event) => setTerm(event.target.value)} />
         </div>
     );
 }

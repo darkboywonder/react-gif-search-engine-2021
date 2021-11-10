@@ -1,7 +1,7 @@
 export default function GifItem({ gif }) {
     return (
-        <li>
+        <div className="gif-item">
             <img src={gif.images.downsized.url} alt={gif.title} />
-        </li>
+        </div>
     )
 }

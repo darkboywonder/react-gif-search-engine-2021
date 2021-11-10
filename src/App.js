@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import GifList from "./components/GifList";
 import SearchBar from "./components/SearchBar";
 import request from "superagent";
+import "./styles/app.css";
 
 export default function App() {
     const [gifs, setGifs] = useState([]);
